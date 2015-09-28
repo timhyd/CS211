@@ -5,9 +5,7 @@ import java.lang.*;
 import javafx.application.*;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -238,12 +236,13 @@ Task quick_Task = new Task<Void>()
 
 
 
-
+/*
       while(control.step()){
 //        pane.setColoredBarIndex(control.getCurrentIndex());
      }
       lblStatus.setText("The array is sorted!");
       //Creates on action listener to sort through the given array
+*/
 /*
       btStep.setOnAction(e -> {
         if (control.step())
