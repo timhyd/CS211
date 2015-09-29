@@ -105,13 +105,10 @@ public class Exercise30_19 extends Application{
       //gridpane.add(heappane, 1, 1);
       gridpane.add(insertpane, 2, 0);
       gridpane.add(quickpane, 2, 1);
-      gridpane.add(bubblepane, 1, 2);
+      gridpane.add(bubblepane, 2, 2);
 
 
-/*
-      Button btStep = new Button("Step");
-      Button btReset = new Button("Reset");
-*/
+
       HBox hBox = new HBox(5);
       //hBox.getChildren().addAll(btStep);
       hBox.setAlignment(Pos.CENTER);
@@ -164,58 +161,36 @@ final int[] quicklist = list;
         }
       };
 */
-Task select_Task = new Task<Void>()
-{
- @Override
- public Void call() throws InterruptedException
- {
+
     int[] selectlist2 = selectlist;
-    while(true)
+    Platform.runLater(() ->
     {
       selection.selectionSort(selectlist2);
-      Platform.runLater(() ->
+      while(true)
       {
         repaint(selectionpane, selectlist2);
-      });
-      Thread.sleep(50);
-    }
- }
-};
+      }
 
-Task bubble_Task = new Task<Void>()
-{
- @Override
- public Void call() throws InterruptedException
- {
-    int[] bubblelist2 = bubblelist;
-    while(true)
-    {
-      bubble.bubbleSort(bubblelist2);
-      Platform.runLater(() ->
-      {
-        repaint(bubblepane, bubblelist2);
-      });
-      Thread.sleep(50);
-    }
- }
-};
-Task insert_Task = new Task<Void>()
-{
- @Override
- public Void call() throws InterruptedException
- {
+   });
+
+   Platform.runLater(() ->{
+         while(control.step())
+           bubblepane.setColoredBarIndex(control.getCurrentIndex());
+        });
+
     int[] insertlist2 = insertlist;
-    while(true)
+    Platform.runLater(() ->
     {
-      insert.insertionSort(insertlist2);
-      Platform.runLater(() ->
+
+      while(true)
       {
+        insert.insertionSort(insertlist2);
         repaint(insertpane, insertlist2);
-      });
-      Thread.sleep(50);
-    }
- }
-};
+      }
+      
+   });
+
+
 Task quick_Task = new Task<Void>()
 {
  @Override

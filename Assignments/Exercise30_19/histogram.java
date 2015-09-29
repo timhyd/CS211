@@ -4,6 +4,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -23,6 +24,11 @@ public class histogram extends Application {
     HistogramPane pane4 = new HistogramPane();
     HistogramPane pane5 = new HistogramPane();
 
+    MergeSort mergeSort = new MergeSort();
+    InsertionSort insertSort = new InsertionSort();
+    QuickSort quickSort = new QuickSort();
+    SelectionSort selectSort = new SelectionSort();
+
 
 
     pane.setStyle("-fx-border-color: black");
@@ -33,18 +39,23 @@ public class histogram extends Application {
 
     BorderPane borderPane = new BorderPane();
     borderPane.setCenter(pane);
-    borderPane.setBottom(hBox);
+
+    //borderPane.setBottom(hBox);
 
     Label lblStatus = new Label();
     borderPane.setTop(lblStatus);
     BorderPane.setAlignment(lblStatus, Pos.CENTER);
     GridPane allSorts = new GridPane();
+/*    allSorts.add(pane, 1, 1);
+    allSorts.add(pane2, 2, 1);
+    allSorts.add(pane3, 3, 1);
+    allSorts.add(pane4, 2, 1);
+    allSorts.add(pane5, 2, 2);
+*/
 
-
-
+    borderPane.setCenter(allSorts);
     // Create a scene and place it in the stage
-    borderPane.setCenter()
-    Scene scene = new Scene(borderPane, 400, 250);
+    Scene scene = new Scene(borderPane, 1000, 800);
     primaryStage.setTitle("Histogram Example"); // Set the stage title
     primaryStage.setScene(scene); // Place the scene in the stage
     primaryStage.show(); // Display the stage
@@ -61,10 +72,18 @@ Platform.runLater(() ->{
 
       while(control.step())
         pane.setColoredBarIndex(control.getCurrentIndex());
-
-
      });
 
+//merge Sort
+/*
+Platform.runLater(() ->{
+
+     while(control.step())
+       pane2.heapSort.sort(!!!!!!!!!!!!!!!!!!!!!!!!);
+
+
+    });
+*/
   }
   public static void main(String[] args) {
     launch(args);
