@@ -10,19 +10,25 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.application.*;
 
 public class histogram extends Application {
   double radius = 2;
+  final public int WaitTime = 50;
   @Override // Override the start method in the Application class
   public void start(Stage primaryStage) {
     HistogramPane pane = new HistogramPane();
-    pane.setStyle("-fx-border-color: black");
+    HistogramPane pane2 = new HistogramPane();
+    HistogramPane pane3 = new HistogramPane();
+    HistogramPane pane4 = new HistogramPane();
+    HistogramPane pane5 = new HistogramPane();
 
-    Button btStep = new Button("Step");
-    Button btReset = new Button("Reset");
+
+
+    pane.setStyle("-fx-border-color: black");
+//This is horribly written code and I should feel bad - Timothy Hydanuss
 
     HBox hBox = new HBox(5);
-    hBox.getChildren().addAll(btStep);
     hBox.setAlignment(Pos.CENTER);
 
     BorderPane borderPane = new BorderPane();
@@ -32,8 +38,12 @@ public class histogram extends Application {
     Label lblStatus = new Label();
     borderPane.setTop(lblStatus);
     BorderPane.setAlignment(lblStatus, Pos.CENTER);
+    GridPane allSorts = new GridPane();
+
+
 
     // Create a scene and place it in the stage
+    borderPane.setCenter()
     Scene scene = new Scene(borderPane, 400, 250);
     primaryStage.setTitle("Histogram Example"); // Set the stage title
     primaryStage.setScene(scene); // Place the scene in the stage
@@ -45,23 +55,22 @@ public class histogram extends Application {
     //pane.widthProperty().addListener(ov -> pane.repaint());
     //pane.heightProperty().addListener(ov -> pane.repaint());
 
-    btStep.setOnAction(e -> {
-      if (control.step())
-        pane.setColoredBarIndex(control.getCurrentIndex());
-      else
-        lblStatus.setText("The array is already sorted");
-    });
-  }
+    //btStep.setOnAction(e ->
+//Bubble Sort
+Platform.runLater(() ->{
 
-  /**
-   * The main method is only needed for the IDE with limited
-   * JavaFX support. Not needed for running from the command line.
-   */
+      while(control.step())
+        pane.setColoredBarIndex(control.getCurrentIndex());
+
+
+     });
+
+  }
   public static void main(String[] args) {
     launch(args);
   }
 
-  public final static int ARRAY_SIZE = 20;
+  public final static int ARRAY_SIZE = 50;
 
   class StepControl {
     private int[] list = new int[ARRAY_SIZE];
@@ -101,7 +110,7 @@ public class histogram extends Application {
       initializeNumbers();
     }
 
-    public boolean step() {
+    public boolean step(){
 
       if (i >= list.length)
         return false;
@@ -133,9 +142,10 @@ public class histogram extends Application {
       repaint();
     }
 
-    public void setColoredBarIndex(int index) {
+    public void setColoredBarIndex(int index){
       coloredBarIndex = index;
       repaint();
+      //Thread.sleep(WaitTime);
     }
 
     public void repaint() {

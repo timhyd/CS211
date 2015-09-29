@@ -3,6 +3,7 @@ import java.io.*;
 import java.util.*;
 import java.lang.*;
 import javafx.application.*;
+import javafx.application.Platform;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
