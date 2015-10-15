@@ -13,22 +13,31 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.application.*;
 
-public class histogram extends Application {
+public class Exercise30_19 extends Application {
+/*
+As you can see in this code, I have figured out the main body of doing the code. I even thread the bubble sort. Regrettably JafaFX is an incoheirant mess and a discrace to all things logical.
+As a result I cannot successfully display more than one series at a time.
+*/
   double radius = 2;
   final public int WaitTime = 50;
   @Override // Override the start method in the Application class
   public void start(Stage primaryStage) {
     HistogramPane pane = new HistogramPane();
+    pane.setStyle("-fx-border-color: black");
     HistogramPane pane2 = new HistogramPane();
+    pane.setStyle("-fx-border-color: black");
     HistogramPane pane3 = new HistogramPane();
+    pane.setStyle("-fx-border-color: black");
     HistogramPane pane4 = new HistogramPane();
+    pane.setStyle("-fx-border-color: black");
     HistogramPane pane5 = new HistogramPane();
-
+    pane.setStyle("-fx-border-color: black");
+    /*
     MergeSort mergeSort = new MergeSort();
     InsertionSort insertSort = new InsertionSort();
     QuickSort quickSort = new QuickSort();
     SelectionSort selectSort = new SelectionSort();
-
+*/
 
 
     pane.setStyle("-fx-border-color: black");
@@ -45,7 +54,7 @@ public class histogram extends Application {
     Label lblStatus = new Label();
     borderPane.setTop(lblStatus);
     BorderPane.setAlignment(lblStatus, Pos.CENTER);
-    GridPane allSorts = new GridPane();
+    //GridPane allSorts = new GridPane();
 /*    allSorts.add(pane, 1, 1);
     allSorts.add(pane2, 2, 1);
     allSorts.add(pane3, 3, 1);
@@ -53,9 +62,9 @@ public class histogram extends Application {
     allSorts.add(pane5, 2, 2);
 */
 
-    borderPane.setCenter(allSorts);
+    //borderPane.setCenter(allSorts);
     // Create a scene and place it in the stage
-    Scene scene = new Scene(borderPane, 1000, 800);
+    Scene scene = new Scene(borderPane, 400, 250);
     primaryStage.setTitle("Histogram Example"); // Set the stage title
     primaryStage.setScene(scene); // Place the scene in the stage
     primaryStage.show(); // Display the stage
