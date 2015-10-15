@@ -9,7 +9,7 @@ public class Exercise20_11 {
            if (file.exists()) {
              //System.out.println("The number of keywords in " + filename + " is " +
              boolean passFail=countKeywords(file);
-             if (passFail){
+             if (passFail){==
                 System.out.println("The File is properly nested");
              }//End passFail if
              else{
@@ -42,17 +42,22 @@ public class Exercise20_11 {
             arrayNesting = addOneElement(arrayNesting);
             arrayNesting[i] = word;
             i++;
-          }
-
+         }//End contains if
        }//End While
 
+
+
         return correctness;
-     }//Ends count keywords
+     }//Ends count keywords Method
      public static String[] addOneElement(String[] arrayNesting1){
         String[] arrayNestingAdd = new String[arrayNesting.length + 1];
         arraycopy(arrayNesting1, 0, arrayNestingAdd, 0, arrayNesting1.length);
         //arraycopy(arrayNestingAdd, 0, arrayNesting1, 0, arrayNesting, arrayNestingAdd.length);
         return arrayNestingAdd;
-     }
+     }//end addOneElement method
+
+     public static boolean checkNesting(String[] array){
+
+     }//End checkNesting method
 
 }//Ends Exercise20_11
